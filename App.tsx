@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import SignIn from './src/screens/SIgnIn';
+import SignIn from './src/screens/SignIn';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
