@@ -24,6 +24,7 @@ export const LoginScreen = () => {
       <Text style={styles.label}>Email</Text>
       <TextInput
         style={styles.input}
+        placeholderTextColor={'#606060'}
         value={email}
         onChangeText={text => setEmail(text)}
         placeholder="Enter your email"
@@ -31,6 +32,7 @@ export const LoginScreen = () => {
       />
       <Text style={styles.label}>Password</Text>
       <TextInput
+        placeholderTextColor={'#606060'}
         style={styles.input}
         value={password}
         onChangeText={text => setPassword(text)}
