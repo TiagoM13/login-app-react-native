@@ -9,7 +9,9 @@ export const styles = StyleSheet.create({
   },
   label: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontFamily: 'Inter-SemiBold',
+    fontWeight: '700',
+    color: '#000',
   },
   input: {
     paddingVertical: 10,
@@ -18,7 +20,9 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#090909',
     borderRadius: 10,
-    fontSize: 16,
+    fontSize: 18,
+    fontFamily: 'Inter-SemiBold',
+    fontWeight: '600',
   },
   button: {
     alignItems: 'center',
@@ -30,7 +34,8 @@ export const styles = StyleSheet.create({
   },
   text: {
     color: '#FFF',
-    fontSize: 18,
+    fontFamily: 'Inter-ExtraBold',
+    fontSize: 20,
     fontWeight: '800',
   },
 });

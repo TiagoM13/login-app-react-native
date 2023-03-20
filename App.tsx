@@ -44,10 +44,12 @@ function App(): JSX.Element {
 
 const styles = StyleSheet.create({
   title: {
+    fontFamily: 'Inter-Black',
+    fontWeight: '800',
     fontSize: 24,
-    fontWeight: '600',
     textAlign: 'center',
     marginTop: 20,
+    color: '#000',
   },
 });
 
