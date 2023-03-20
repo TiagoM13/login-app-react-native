@@ -5,7 +5,7 @@ import { Text, TextInput, TextInputProps } from 'react-native';
 import { styles } from './styles';
 
 interface InputFiedlProps extends TextInputProps {
-  label?: string;
+  label: string;
 }
 
 export const InputFiled = ({ label, ...rest }: InputFiedlProps) => {
