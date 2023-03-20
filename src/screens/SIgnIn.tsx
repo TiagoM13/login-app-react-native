@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View } from 'react-native';
+import { TouchableButton } from '../components/Button/TouchableButton';
 import { InputFiled } from '../components/InputFiled/InputField';
 
 import { styles } from './styles';
@@ -38,13 +39,10 @@ const SignIn = () => {
         secureTextEntry={true}
       />
 
-      <TouchableOpacity
-        style={styles.button}
+      <TouchableButton
+        value="Sign In"
         onPress={handleLogin}
-        activeOpacity={0.7}
-      >
-        <Text style={styles.text}>Login</Text>
-      </TouchableOpacity>
+      />
 
     </View>
   );
