@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { LoginScreen } from './src/components/LoginScreen';
+import SignIn from './src/screens/SIgnIn';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -35,7 +35,7 @@ function App(): JSX.Element {
           Login In
         </Text>
 
-        <LoginScreen />
+        <SignIn />
       </View>
 
     </SafeAreaView>

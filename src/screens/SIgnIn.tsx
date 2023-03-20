@@ -1,11 +1,11 @@
 /* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import { InputFiled } from './InputFiled/InputField';
+import { InputFiled } from '../components/InputFiled/InputField';
 
 import { styles } from './styles';
 
-export const LoginScreen = () => {
+const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -49,3 +49,5 @@ export const LoginScreen = () => {
     </View>
   );
 };
+
+export default SignIn;
