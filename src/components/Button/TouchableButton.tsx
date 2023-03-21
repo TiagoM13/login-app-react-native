@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
 import { Text, TouchableOpacity, TouchableOpacityProps } from 'react-native';
 
@@ -10,11 +9,7 @@ interface TouchableButtonProps extends TouchableOpacityProps {
 
 export const TouchableButton = ({ value, ...rest }: TouchableButtonProps) => {
   return (
-    <TouchableOpacity
-      {...rest}
-      activeOpacity={0.7}
-      style={styles.button}
-    >
+    <TouchableOpacity {...rest} activeOpacity={0.7} style={styles.button}>
       <Text style={styles.text}>{value}</Text>
     </TouchableOpacity>
   );
