@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { TouchableButton } from '../components/Button/TouchableButton';
@@ -26,7 +25,7 @@ const SignIn = () => {
       <InputFiled
         label="Email"
         value={email}
-        onChangeText={text => setEmail(text)}
+        onChangeText={(text) => setEmail(text)}
         placeholder="Enter your email"
         keyboardType="email-address"
       />
@@ -34,16 +33,12 @@ const SignIn = () => {
       <InputFiled
         label="Password"
         value={password}
-        onChangeText={text => setPassword(text)}
+        onChangeText={(text) => setPassword(text)}
         placeholder="Enter your password"
         secureTextEntry={true}
       />
 
-      <TouchableButton
-        value="Sign In"
-        onPress={handleLogin}
-      />
-
+      <TouchableButton value="Sign In" onPress={handleLogin} />
     </View>
   );
 };

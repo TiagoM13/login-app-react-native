@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
 import { Text, TextInput, TextInputProps } from 'react-native';
 
@@ -11,14 +10,8 @@ interface InputFiedlProps extends TextInputProps {
 export const InputFiled = ({ label, ...rest }: InputFiedlProps) => {
   return (
     <>
-      <Text style={styles.label}>
-        {label}
-      </Text>
-      <TextInput
-        {...rest}
-        style={styles.input}
-        placeholderTextColor={'#606060'}
-      />
+      <Text style={styles.label}>{label}</Text>
+      <TextInput {...rest} style={styles.input} placeholderTextColor={'#606060'} />
     </>
   );
 };
