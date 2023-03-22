@@ -1,16 +1,8 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
-import {
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import { SafeAreaView, StatusBar, StyleSheet, Text, useColorScheme, View } from 'react-native';
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { LoginScreen } from './src/components/LoginScreen';
+import SignIn from './src/screens/SignIn';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -21,7 +13,6 @@ function App(): JSX.Element {
 
   return (
     <SafeAreaView style={backgroundStyle}>
-
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
@@ -30,14 +21,12 @@ function App(): JSX.Element {
       <View
         style={{
           backgroundColor: isDarkMode ? Colors.black : Colors.white,
-        }}>
-        <Text style={styles.title}>
-          Login In
-        </Text>
+        }}
+      >
+        <Text style={styles.title}>Login In</Text>
 
-        <LoginScreen />
+        <SignIn />
       </View>
-
     </SafeAreaView>
   );
 }
