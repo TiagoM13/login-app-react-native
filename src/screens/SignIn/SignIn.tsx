@@ -1,8 +1,8 @@
 import React from 'react';
-import { View } from 'react-native';
-import { TouchableButton } from '../components/Button/TouchableButton';
-import { InputFiled } from '../components/InputFiled/InputField';
-import { useAuthentication } from '../hooks/auth';
+import { Text, View } from 'react-native';
+import { TouchableButton } from '../../components/Button/TouchableButton';
+import { InputFiled } from '../../components/InputFiled/InputField';
+import { useAuthentication } from '../../hooks/auth';
 
 import { styles } from './styles';
 
@@ -11,6 +11,8 @@ const SignIn = () => {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.title}>Login In</Text>
+
       <InputFiled
         label="Email"
         value={email}
