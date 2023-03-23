@@ -1,8 +1,11 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
+  container: {
+    marginTop: 20,
+  },
   label: {
-    fontSize: 18,
+    fontSize: 20,
     fontFamily: 'Inter-SemiBold',
     fontWeight: '700',
     color: '#000',
@@ -10,7 +13,7 @@ export const styles = StyleSheet.create({
   input: {
     paddingVertical: 10,
     paddingHorizontal: 15,
-    marginVertical: 10,
+    marginTop: 15,
     borderWidth: 1,
     borderColor: '#090909',
     borderRadius: 10,
