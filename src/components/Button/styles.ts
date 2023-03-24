@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { THEME } from '../../utils/theme';
 
 export const styles = StyleSheet.create({
   button: {
@@ -7,11 +8,11 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 15,
     marginTop: 30,
-    backgroundColor: 'green',
+    backgroundColor: THEME.GREEN,
     borderRadius: 10,
   },
   text: {
-    color: '#FFF',
+    color: THEME.WHITE,
     fontFamily: 'Inter-ExtraBold',
     fontSize: 22,
     fontWeight: '800',

@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { THEME } from '../../utils/theme';
 
 export const styles = StyleSheet.create({
   container: {
@@ -8,14 +9,14 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: 'Inter-SemiBold',
     fontWeight: '700',
-    color: '#000',
+    color: THEME.BLACK,
   },
   input: {
     paddingVertical: 10,
     paddingHorizontal: 15,
     marginTop: 15,
     borderWidth: 1,
-    borderColor: '#090909',
+    borderColor: THEME.BLACK_900,
     borderRadius: 10,
     fontSize: 18,
     fontFamily: 'Inter-SemiBold',
