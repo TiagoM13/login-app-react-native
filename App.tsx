@@ -1,7 +1,8 @@
 import React from 'react';
-import { SafeAreaView, StatusBar, useColorScheme, View } from 'react-native';
+import { SafeAreaView, StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
+import Home from './src/screens/Home/Home';
 import SignIn from './src/screens/SignIn/SignIn';
 import SignUp from './src/screens/SignUp/SignUp';
 
@@ -13,7 +14,7 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <SafeAreaView style={styles.container}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
@@ -24,11 +25,19 @@ const App = () => {
           backgroundColor: isDarkMode ? Colors.black : Colors.white,
         }}
       >
-        <SignIn />
+        {/* <SignIn /> */}
         {/* <SignUp /> */}
+        <Home />
       </View>
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+});
 
 export default App;
