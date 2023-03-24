@@ -1,18 +1,28 @@
 import { StyleSheet } from 'react-native';
+import { THEME } from '../../utils/theme';
 
-export const styles = StyleSheet.create({
-  button: {
-    alignItems: 'center',
-    paddingHorizontal: 20,
-    paddingVertical: 12,
-    marginTop: 10,
-    backgroundColor: 'green',
-    borderRadius: 10,
-  },
+interface Props {
+  color?: string;
+}
+
+export const stylesButton = ({ color }: Props) =>
+  StyleSheet.create({
+    button: {
+      width: '100%',
+      alignItems: 'center',
+      paddingHorizontal: 20,
+      paddingVertical: 15,
+      marginTop: 30,
+      borderRadius: 10,
+      backgroundColor: color || THEME.GREEN,
+    },
+  });
+
+export const stylesText = StyleSheet.create({
   text: {
-    color: '#FFF',
+    color: THEME.WHITE,
     fontFamily: 'Inter-ExtraBold',
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: '800',
   },
 });

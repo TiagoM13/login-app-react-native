@@ -1,10 +1,12 @@
 import React from 'react';
-import { SafeAreaView, StatusBar, StyleSheet, Text, useColorScheme, View } from 'react-native';
-
+import { SafeAreaView, StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import SignIn from './src/screens/SignIn';
 
-function App(): JSX.Element {
+import Home from './src/screens/Home/Home';
+import SignIn from './src/screens/SignIn/SignIn';
+import SignUp from './src/screens/SignUp/SignUp';
+
+const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -12,7 +14,7 @@ function App(): JSX.Element {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <SafeAreaView style={styles.container}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
@@ -23,22 +25,18 @@ function App(): JSX.Element {
           backgroundColor: isDarkMode ? Colors.black : Colors.white,
         }}
       >
-        <Text style={styles.title}>Login In</Text>
-
-        <SignIn />
+        {/* <SignIn /> */}
+        {/* <SignUp /> */}
+        <Home />
       </View>
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  title: {
-    fontFamily: 'Inter-Black',
-    fontWeight: '800',
-    fontSize: 24,
-    textAlign: 'center',
-    marginTop: 20,
-    color: '#000',
+  container: {
+    flex: 1,
+    justifyContent: 'center',
   },
 });
 
