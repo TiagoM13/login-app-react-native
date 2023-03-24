@@ -4,6 +4,7 @@ import { Image, Text, View } from 'react-native';
 import img from '../../assets/img/user.png';
 
 import { TouchableButton } from '../../components/Button/TouchableButton';
+import { THEME } from '../../utils/theme';
 
 import { styles } from './styles';
 
@@ -18,7 +19,7 @@ const Home = () => {
       </View>
 
       <TouchableButton value="Login" />
-      <TouchableButton value="Sign Up" />
+      <TouchableButton value="Sign Up" background={THEME.RED_500} />
     </View>
   );
 };
