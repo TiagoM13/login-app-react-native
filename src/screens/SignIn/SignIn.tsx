@@ -4,7 +4,7 @@ import { TouchableButton } from '../../components/Button/TouchableButton';
 import { InputFiled } from '../../components/InputFiled/InputField';
 import { useAuthentication } from '../../hooks/auth';
 
-import { styles } from './styles';
+import { styles } from '../styles/styles';
 
 const SignIn = () => {
   const { email, password, onEmail, onPassword, handleAuthentication } = useAuthentication();

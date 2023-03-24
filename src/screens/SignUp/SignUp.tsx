@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 import { TouchableButton } from '../../components/Button/TouchableButton';
 import { InputFiled } from '../../components/InputFiled/InputField';
 
-import { styles } from './styles';
+import { styles } from '../styles/styles';
 
 const SignUp = () => {
   return (

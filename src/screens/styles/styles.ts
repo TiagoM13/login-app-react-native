@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { THEME } from '../../utils/theme';
 
 export const styles = StyleSheet.create({
   container: {
@@ -9,9 +10,9 @@ export const styles = StyleSheet.create({
   title: {
     fontFamily: 'Inter-Black',
     fontWeight: '800',
-    fontSize: 24,
+    fontSize: 35,
     textAlign: 'center',
     marginTop: 20,
-    color: '#000',
+    color: THEME.BLACK,
   },
 });
