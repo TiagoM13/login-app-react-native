@@ -1,17 +1,20 @@
 import { StyleSheet } from 'react-native';
+import { THEME } from '../../utils/theme';
 
 export const styles = StyleSheet.create({
   container: {
     width: '100%',
-    padding: 20,
-    marginBottom: 40,
-    justifyContent: 'space-between',
+    paddingVertical: 10,
+    marginBottom: 30,
   },
   button: {
-    width: '30%',
-    padding: 5,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    borderRadius: 20,
+    width: 50,
+    padding: 10,
+    marginLeft: 5,
+  },
+  icon: {
+    fontSize: 40,
+    textAlign: 'center',
+    color: THEME.BLACK,
   },
 });
