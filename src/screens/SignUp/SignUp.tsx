@@ -1,22 +1,28 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { TouchableButton } from '../../components/Button/TouchableButton';
+
+import { Header } from '../../components/Header/Header';
 import { InputFiled } from '../../components/InputFiled/InputField';
+import { TouchableButton } from '../../components/Button/TouchableButton';
 
 import { styles } from '../styles/styles';
 
 const SignUp = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Sign Up</Text>
+    <View>
+      <Header />
 
-      <InputFiled label="Name" keyboardType="default" placeholder="Enter your name" />
+      <View style={styles.container}>
+        <Text style={styles.title}>Sign Up</Text>
 
-      <InputFiled label="Email" placeholder="Enter your email" keyboardType="email-address" />
+        <InputFiled label="Name" keyboardType="default" placeholder="Enter your name" />
 
-      <InputFiled label="Password" placeholder="Enter your password" secureTextEntry={true} />
+        <InputFiled label="Email" placeholder="Enter your email" keyboardType="email-address" />
 
-      <TouchableButton value="Sign Up" onPress={() => console.warn('Enviado com sucesso!')} />
+        <InputFiled label="Password" placeholder="Enter your password" secureTextEntry={true} />
+
+        <TouchableButton value="Sign Up" onPress={() => console.warn('Enviado com sucesso!')} />
+      </View>
     </View>
   );
 };
