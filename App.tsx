@@ -26,8 +26,8 @@ const App = () => {
         }}
       >
         {/* <SignIn /> */}
-        {/* <SignUp /> */}
-        <Home />
+        <SignUp />
+        {/* <Home /> */}
       </View>
     </SafeAreaView>
   );
