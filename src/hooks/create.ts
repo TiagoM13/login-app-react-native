@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState } from 'react';
 import { Alert } from 'react-native';
 
 type UsersProps = {
@@ -17,6 +17,7 @@ export const useCreateUser = () => {
 
   // regex validate email
   const REGEX_EMAIL = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+  const REGEX_PASSWORD = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#!])[0-9a-zA-Z$*&@#!]{8,}$/;
 
   const getUser = (value: string) => {
     setUser(value);
@@ -33,6 +34,24 @@ export const useCreateUser = () => {
   const handleCreateAccount = () => {
     setUsers([...users, { id, user, email, password }]);
     setId(id + 1);
+
+    if (user.trim() === '' || email.trim() === '' || password.trim() === '') {
+      Alert.alert('Invalid fields!', 'Fields must be filled');
+    } else if (!REGEX_EMAIL.test(email)) {
+      Alert.alert('Invalid email!', 'Email invalid');
+    } else if (!REGEX_PASSWORD.test(password)) {
+      Alert.alert(
+        'Invalid password!',
+        `Password invalid 
+  - must contain a lowercase letter
+  - must contain a capital letter
+  - must contain a special character
+  - must contain 8 of the characters`,
+      );
+    } else {
+      Alert.alert('Create account', 'account created successfully!,');
+      console.log({ users });
+    }
 
     // reset fileds
     setUser('');
