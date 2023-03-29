@@ -1,10 +1,8 @@
 import React from 'react';
-import { SafeAreaView, StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import { SafeAreaView, StatusBar, StyleSheet, useColorScheme } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
-import Home from './src/screens/Home/Home';
-import SignIn from './src/screens/SignIn/SignIn';
-import SignUp from './src/screens/SignUp/SignUp';
+import Navigator from './src/routes/Navigation';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -20,15 +18,7 @@ const App = () => {
         backgroundColor={backgroundStyle.backgroundColor}
       />
 
-      <View
-        style={{
-          backgroundColor: isDarkMode ? Colors.black : Colors.white,
-        }}
-      >
-        {/* <SignIn /> */}
-        <SignUp />
-        {/* <Home /> */}
-      </View>
+      <Navigator />
     </SafeAreaView>
   );
 };
