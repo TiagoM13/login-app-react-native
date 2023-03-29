@@ -42,11 +42,11 @@ export const useCreateUser = () => {
     } else if (!REGEX_PASSWORD.test(password)) {
       Alert.alert(
         'Invalid password!',
-        `Password invalid 
-  - must contain a lowercase letter
-  - must contain a capital letter
-  - must contain a special character
-  - must contain 8 of the characters`,
+        `The password must contain
+- at least one lowercase letter
+- at least one capital letter
+- at least one special character
+- 8 of characters max`,
       );
     } else {
       Alert.alert('Create account', 'account created successfully!,');
