@@ -1,9 +1,14 @@
 import { useState } from 'react';
 import { Alert } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
+import { ScreensNavigationProps } from '../@types/navigation';
 
 export const useAuthentication = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const navigation = useNavigation<ScreensNavigationProps>();
 
   // regex validate email
   const REGEX_EMAIL = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -26,7 +31,8 @@ export const useAuthentication = () => {
       Alert.alert('Invalid email!', 'Email invalid');
     } else {
       Alert.alert('Authentication', 'User successfully authenticated!');
-      console.warn({ email, password });
+
+      navigation.navigate('Main');
     }
 
     // reset fields

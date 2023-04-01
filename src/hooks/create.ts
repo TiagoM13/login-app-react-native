@@ -50,7 +50,6 @@ export const useCreateUser = () => {
       );
     } else {
       Alert.alert('Create account', 'account created successfully!,');
-      console.log({ users });
     }
 
     // reset fileds
