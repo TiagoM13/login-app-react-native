@@ -1,11 +1,9 @@
 import React from 'react';
-import { Text, TextInput, TextInputProps, View } from 'react-native';
+import { Text, TextInput, View } from 'react-native';
+
+import { InputFiedlProps } from '../../entities/input';
 
 import { styles } from './styles';
-
-interface InputFiedlProps extends TextInputProps {
-  label: string;
-}
 
 export const InputFiled = ({ label, ...rest }: InputFiedlProps) => {
   return (

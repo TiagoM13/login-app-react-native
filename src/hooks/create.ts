@@ -1,12 +1,7 @@
 import { useState } from 'react';
 import { Alert } from 'react-native';
 
-type UsersProps = {
-  id: number;
-  user: string;
-  email: string;
-  password: string;
-};
+import { UsersProps } from '../entities/users';
 
 export const useCreateUser = () => {
   const [id, setId] = useState(1);

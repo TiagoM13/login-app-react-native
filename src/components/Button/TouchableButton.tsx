@@ -1,12 +1,9 @@
 import React from 'react';
-import { Text, TouchableOpacity, TouchableOpacityProps } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
+
+import { TouchableButtonProps } from '../../entities/button';
 
 import { stylesButton, stylesText } from './styles';
-
-interface TouchableButtonProps extends TouchableOpacityProps {
-  value: string;
-  background?: string;
-}
 
 export const TouchableButton = ({ value, background, ...rest }: TouchableButtonProps) => {
   return (
