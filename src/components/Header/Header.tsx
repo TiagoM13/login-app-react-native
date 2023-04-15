@@ -10,8 +10,13 @@ export const Header = () => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()} activeOpacity={0.7}>
-        <Icon name="chevron-left" style={styles.icon} />
+      <TouchableOpacity
+        testID="HeaderButton"
+        style={styles.button}
+        onPress={() => navigation.goBack()}
+        activeOpacity={0.7}
+      >
+        <Icon testID="HeaderIcon" name="chevron-left" style={styles.icon} />
       </TouchableOpacity>
     </View>
   );
