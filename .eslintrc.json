@@ -25,5 +25,6 @@
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     }
-  }
+  },
+  "prettier/prettie": "off"
 }
