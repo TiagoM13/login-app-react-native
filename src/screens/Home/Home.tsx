@@ -15,15 +15,16 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={img} />
+      <Image testID="home-image" style={styles.image} source={img} />
 
       <View style={styles.content}>
         <Text style={styles.text}>Hello!!!</Text>
         <Text style={styles.subtitle}>You need to create an account or login to log in to the app</Text>
       </View>
 
-      <TouchableButton value="Login" onPress={() => navigation.navigate('SignIn')} />
+      <TouchableButton testID="loginButton" value="Login" onPress={() => navigation.navigate('SignIn')} />
       <TouchableButton
+        testID="signUpButton"
         value="Sign Up"
         background={THEME.RED_500}
         onPress={() => navigation.navigate('SignUp')}
