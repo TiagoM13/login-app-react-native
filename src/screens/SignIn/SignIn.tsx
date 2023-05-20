@@ -1,13 +1,13 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-import { Header } from '../../components/Header/Header';
-import { InputField } from '../../components/InputField/InputField';
-import { TouchableButton } from '../../components/Button/TouchableButton';
+import { Header } from '@app/components/Header/Header';
+import { InputField } from '@app/components/InputField/InputField';
+import { TouchableButton } from '@app/components/Button/TouchableButton';
 
-import { useAuthentication } from '../../hooks/auth';
+import { useAuthentication } from '@app/hooks/auth';
 
-import { styles } from '../styles/styles';
+import { styles } from '@app/screens/styles/styles';
 
 const SignIn = () => {
   const { email, password, onEmail, onPassword, handleAuthentication } = useAuthentication();

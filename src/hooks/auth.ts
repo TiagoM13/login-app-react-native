@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import { ScreensNavigationProps } from '../@types/navigation';
+import { ScreensNavigationProps } from '@app/@types/navigation';
 
 export const useAuthentication = () => {
   const [email, setEmail] = useState('');

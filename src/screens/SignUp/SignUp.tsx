@@ -1,12 +1,13 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-import { Header } from '../../components/Header/Header';
-import { InputField } from '../../components/InputField/InputField';
-import { TouchableButton } from '../../components/Button/TouchableButton';
-import { useCreateUser } from '../../hooks/create';
+import { Header } from '@app/components/Header/Header';
+import { InputField } from '@app/components/InputField/InputField';
+import { TouchableButton } from '@app/components/Button/TouchableButton';
 
-import { styles } from '../styles/styles';
+import { useCreateUser } from '@app/hooks/create';
+
+import { styles } from '@app/screens/styles/styles';
 
 const SignUp = () => {
   const { user, email, password, getUser, getEmail, getPassword, handleCreateAccount } = useCreateUser();

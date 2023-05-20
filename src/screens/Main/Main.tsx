@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { THEME } from '../../utils/theme';
+
+import { THEME } from '@app/utils/theme';
 
 const Main = () => {
   return (
