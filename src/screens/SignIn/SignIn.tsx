@@ -2,33 +2,18 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
 
 import { Header } from '@app/components/Header/Header';
 import { InputField } from '@app/components/InputField/InputField';
 import { TouchableButton } from '@app/components/Button/TouchableButton';
+import { FormData } from '@app/entities/form';
 
 import { styles } from '@app/screens/styles/styles';
-import { REGEX_EMAIL } from '@app/utils/regex';
-
-type FormData = {
-  email: string,
-  password: string
-}
-
-const siginSchema = yup.object({
-  email: yup
-    .string()
-    .required('Informe um email')
-    .matches(REGEX_EMAIL, 'Informe um email válido'),
-  password: yup
-    .string()
-    .required('Informe um password')
-})
+import { sigInSchema } from '@app/schemas/schema';
 
 const SignIn = () => {
   const { control, reset, handleSubmit, formState: { errors } } = useForm<FormData>({
-    resolver: yupResolver(siginSchema)
+    resolver: yupResolver(sigInSchema)
   })
 
   const onSubmit = (data: FormData) => {
