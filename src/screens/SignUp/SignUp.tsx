@@ -10,7 +10,7 @@ import { useCreateUser } from '@app/hooks/create';
 import { styles } from '@app/screens/styles/styles';
 
 const SignUp = () => {
-  const { user, email, password, getUser, getEmail, getPassword, handleCreateAccount } = useCreateUser();
+  const { user, email, password, setUser, setEmail, setPassword, handleCreateAccount } = useCreateUser();
 
   return (
     <View>
@@ -22,7 +22,7 @@ const SignUp = () => {
         <InputField
           label="Name"
           value={user}
-          onChangeText={text => getUser(text)}
+          onChangeText={text => setUser(text)}
           keyboardType="default"
           placeholder="Enter your name"
         />
@@ -30,7 +30,7 @@ const SignUp = () => {
         <InputField
           label="Email"
           value={email}
-          onChangeText={text => getEmail(text)}
+          onChangeText={text => setEmail(text)}
           placeholder="Enter your email"
           keyboardType="email-address"
         />
@@ -38,7 +38,7 @@ const SignUp = () => {
         <InputField
           label="Password"
           value={password}
-          onChangeText={text => getPassword(text)}
+          onChangeText={text => setPassword(text)}
           placeholder="Enter your password"
           secureTextEntry={true}
         />

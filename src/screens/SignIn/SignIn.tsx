@@ -10,7 +10,7 @@ import { useAuthentication } from '@app/hooks/auth';
 import { styles } from '@app/screens/styles/styles';
 
 const SignIn = () => {
-  const { email, password, onEmail, onPassword, handleAuthentication } = useAuthentication();
+  const { email, password, setEmail, setPassword, handleAuthentication } = useAuthentication();
 
   return (
     <View>
@@ -22,7 +22,7 @@ const SignIn = () => {
         <InputField
           label="Email"
           value={email}
-          onChangeText={text => onEmail(text)}
+          onChangeText={text => setEmail(text)}
           placeholder="Enter your email"
           keyboardType="email-address"
         />
@@ -30,7 +30,7 @@ const SignIn = () => {
         <InputField
           label="Password"
           value={password}
-          onChangeText={text => onPassword(text)}
+          onChangeText={text => setPassword(text)}
           placeholder="Enter your password"
           secureTextEntry={true}
         />
