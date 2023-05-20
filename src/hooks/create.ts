@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Alert } from 'react-native';
 
-import { UsersProps } from '../entities/users';
+import { UsersProps } from '@app/entities/users';
 
 export const useCreateUser = () => {
   const [id, setId] = useState(1);

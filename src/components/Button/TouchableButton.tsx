@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 
-import { TouchableButtonProps } from '../../entities/button';
+import { TouchableButtonProps } from '@app/entities/button';
 
 import { stylesButton, stylesText } from './styles';
 

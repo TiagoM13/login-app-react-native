@@ -1,13 +1,13 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-import { Header } from '../../components/Header/Header';
-import { InputFiled } from '../../components/InputFiled/InputField';
-import { TouchableButton } from '../../components/Button/TouchableButton';
+import { Header } from '@app/components/Header/Header';
+import { InputField } from '@app/components/InputField/InputField';
+import { TouchableButton } from '@app/components/Button/TouchableButton';
 
-import { useAuthentication } from '../../hooks/auth';
+import { useAuthentication } from '@app/hooks/auth';
 
-import { styles } from '../styles/styles';
+import { styles } from '@app/screens/styles/styles';
 
 const SignIn = () => {
   const { email, password, onEmail, onPassword, handleAuthentication } = useAuthentication();
@@ -19,7 +19,7 @@ const SignIn = () => {
       <View style={styles.container}>
         <Text style={styles.title}>Login In</Text>
 
-        <InputFiled
+        <InputField
           label="Email"
           value={email}
           onChangeText={text => onEmail(text)}
@@ -27,7 +27,7 @@ const SignIn = () => {
           keyboardType="email-address"
         />
 
-        <InputFiled
+        <InputField
           label="Password"
           value={password}
           onChangeText={text => onPassword(text)}

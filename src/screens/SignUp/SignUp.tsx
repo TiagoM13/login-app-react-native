@@ -1,12 +1,13 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-import { Header } from '../../components/Header/Header';
-import { InputFiled } from '../../components/InputFiled/InputField';
-import { TouchableButton } from '../../components/Button/TouchableButton';
-import { useCreateUser } from '../../hooks/create';
+import { Header } from '@app/components/Header/Header';
+import { InputField } from '@app/components/InputField/InputField';
+import { TouchableButton } from '@app/components/Button/TouchableButton';
 
-import { styles } from '../styles/styles';
+import { useCreateUser } from '@app/hooks/create';
+
+import { styles } from '@app/screens/styles/styles';
 
 const SignUp = () => {
   const { user, email, password, getUser, getEmail, getPassword, handleCreateAccount } = useCreateUser();
@@ -18,7 +19,7 @@ const SignUp = () => {
       <View style={styles.container}>
         <Text style={styles.title}>Sign Up</Text>
 
-        <InputFiled
+        <InputField
           label="Name"
           value={user}
           onChangeText={text => getUser(text)}
@@ -26,7 +27,7 @@ const SignUp = () => {
           placeholder="Enter your name"
         />
 
-        <InputFiled
+        <InputField
           label="Email"
           value={email}
           onChangeText={text => getEmail(text)}
@@ -34,7 +35,7 @@ const SignUp = () => {
           keyboardType="email-address"
         />
 
-        <InputFiled
+        <InputField
           label="Password"
           value={password}
           onChangeText={text => getPassword(text)}

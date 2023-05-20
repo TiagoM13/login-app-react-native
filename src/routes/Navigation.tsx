@@ -4,10 +4,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { StackNavigatorParamListType } from '../@types/navigation';
 
-import Home from '../screens/Home/Home';
-import Main from '../screens/Main/Main';
-import SignIn from '../screens/SignIn/SignIn';
-import SignUp from '../screens/SignUp/SignUp';
+import Home from '@app/screens/Home/Home';
+import Main from '@app/screens/Main/Main';
+import SignIn from '@app/screens/SignIn/SignIn';
+import SignUp from '@app/screens/SignUp/SignUp';
 
 const Stack = createNativeStackNavigator<StackNavigatorParamListType>();
 

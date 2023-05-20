@@ -2,11 +2,11 @@ import React from 'react';
 import { Image, Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import img from '../../assets/img/user.png';
+import img from '@app/assets/img/user.png';
 
-import { ScreensNavigationProps } from '../../@types/navigation';
-import { TouchableButton } from '../../components/Button/TouchableButton';
-import { THEME } from '../../utils/theme';
+import { ScreensNavigationProps } from '@app/@types/navigation';
+import { TouchableButton } from '@app/components/Button/TouchableButton';
+import { THEME } from '@app/utils/theme';
 
 import { styles } from './styles';
 
