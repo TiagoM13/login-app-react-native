@@ -1,23 +1,52 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Alert, Text, View } from 'react-native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+
+import { ScreensNavigationProps } from '@app/@types/navigation';
 
 import { Header } from '@app/components/Header/Header';
 import { InputField } from '@app/components/InputField/InputField';
 import { TouchableButton } from '@app/components/Button/TouchableButton';
+
 import { FormDataSingIn } from '@app/entities/form';
 
-import { styles } from '@app/screens/styles/styles';
 import { sigInSchema } from '@app/schemas/schema';
+
+import { styles } from '@app/screens/styles/styles';
+
+type ParamsProps = {
+  email: string
+  password: string
+}
 
 const SignIn = () => {
   const { control, reset, handleSubmit, formState: { errors } } = useForm<FormDataSingIn>({
     resolver: yupResolver(sigInSchema)
   })
 
+  const route = useRoute();
+  const { email, password } = route.params as ParamsProps
+  const navigation = useNavigation<ScreensNavigationProps>();
+
+  console.log({ email, password })
+
   const onSubmit = (data: FormDataSingIn) => {
-    console.log({ data })
+    const isvalid = email === '' && password === '';
+    const userValid = data.email === email && data.password === password;
+
+    if (isvalid) {
+      Alert.alert('There is no user', 'Create your account')
+    }
+
+    if (!isvalid && userValid) {
+      Alert.alert('Valid user', 'redirect home page')
+      navigation.navigate('Main')
+      console.log({ data })
+    } else {
+      Alert.alert('Invalid user', 'Please enter a valid email and password')
+    }
 
     reset()
   }
