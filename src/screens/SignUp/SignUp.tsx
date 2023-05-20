@@ -1,15 +1,34 @@
 import React from 'react';
 import { Text, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { useForm, Controller } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 
-import { Header } from '../../components/Header/Header';
-import { InputFiled } from '../../components/InputFiled/InputField';
-import { TouchableButton } from '../../components/Button/TouchableButton';
-import { useCreateUser } from '../../hooks/create';
+import { ScreensNavigationProps } from '@app/@types/navigation';
 
-import { styles } from '../styles/styles';
+import { Header } from '@app/components/Header/Header';
+import { InputField } from '@app/components/InputField/InputField';
+import { TouchableButton } from '@app/components/Button/TouchableButton';
+
+import { FormDataSingUp } from '@app/entities/form';
+
+import { signUpSchema } from '@app/schemas/schema';
+
+import { styles } from '@app/screens/styles/styles';
 
 const SignUp = () => {
-  const { user, email, password, getUser, getEmail, getPassword, handleCreateAccount } = useCreateUser();
+  const { control, reset, handleSubmit, formState: { errors } } = useForm<FormDataSingUp>({
+    resolver: yupResolver(signUpSchema)
+  });
+
+  const navigation = useNavigation<ScreensNavigationProps>();
+
+  const createAccount = (data: FormDataSingUp) => {
+    console.log({ data })
+
+    reset()
+    navigation.navigate('SignIn', { email: data.email, password: data.password })
+  }
 
   return (
     <View>
@@ -18,31 +37,49 @@ const SignUp = () => {
       <View style={styles.container}>
         <Text style={styles.title}>Sign Up</Text>
 
-        <InputFiled
-          label="Name"
-          value={user}
-          onChangeText={text => getUser(text)}
-          keyboardType="default"
-          placeholder="Enter your name"
-        />
+        <Controller
+          control={control}
+          name="name"
+          render={({ field: { onChange, value } }) => (
+            <InputField
+              label="Name"
+              value={value}
+              onChangeText={onChange}
+              keyboardType="default"
+              placeholder="Enter your name"
+              errorMessage={errors.name?.message}
+            />
+          )} />
 
-        <InputFiled
-          label="Email"
-          value={email}
-          onChangeText={text => getEmail(text)}
-          placeholder="Enter your email"
-          keyboardType="email-address"
-        />
+        <Controller
+          control={control}
+          name="email"
+          render={({ field: { onChange, value } }) => (
+            <InputField
+              label="Email"
+              value={value}
+              onChangeText={onChange}
+              placeholder="Enter your email"
+              keyboardType="email-address"
+              errorMessage={errors.email?.message}
+            />
+          )} />
 
-        <InputFiled
-          label="Password"
-          value={password}
-          onChangeText={text => getPassword(text)}
-          placeholder="Enter your password"
-          secureTextEntry={true}
-        />
+        <Controller
+          control={control}
+          name="password"
+          render={({ field: { onChange, value } }) => (
+            <InputField
+              label="Password"
+              value={value}
+              onChangeText={onChange}
+              placeholder="Enter your password"
+              secureTextEntry={true}
+              errorMessage={errors.password?.message}
+            />
+          )} />
 
-        <TouchableButton value="Sign Up" onPress={handleCreateAccount} />
+        <TouchableButton value="Sign Up" onPress={handleSubmit(createAccount)} />
       </View>
     </View>
   );

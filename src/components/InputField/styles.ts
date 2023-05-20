@@ -22,4 +22,10 @@ export const styles = StyleSheet.create({
     fontFamily: 'Inter-SemiBold',
     fontWeight: '600',
   },
+  error: {
+    fontSize: 16,
+    fontFamily: 'Inter-Medium',
+    fontWeight: '700',
+    color: THEME.RED_500,
+  }
 });
