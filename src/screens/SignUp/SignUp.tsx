@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View } from 'react-native';
 
 import { Header } from '../../components/Header/Header';
-import { InputFiled } from '../../components/InputFiled/InputField';
+import { InputField } from '../../components/InputField/InputField';
 import { TouchableButton } from '../../components/Button/TouchableButton';
 import { useCreateUser } from '../../hooks/create';
 
@@ -18,7 +18,7 @@ const SignUp = () => {
       <View style={styles.container}>
         <Text style={styles.title}>Sign Up</Text>
 
-        <InputFiled
+        <InputField
           label="Name"
           value={user}
           onChangeText={text => getUser(text)}
@@ -26,7 +26,7 @@ const SignUp = () => {
           placeholder="Enter your name"
         />
 
-        <InputFiled
+        <InputField
           label="Email"
           value={email}
           onChangeText={text => getEmail(text)}
@@ -34,7 +34,7 @@ const SignUp = () => {
           keyboardType="email-address"
         />
 
-        <InputFiled
+        <InputField
           label="Password"
           value={password}
           onChangeText={text => getPassword(text)}

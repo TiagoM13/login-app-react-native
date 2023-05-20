@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View } from 'react-native';
 
 import { Header } from '../../components/Header/Header';
-import { InputFiled } from '../../components/InputFiled/InputField';
+import { InputField } from '../../components/InputField/InputField';
 import { TouchableButton } from '../../components/Button/TouchableButton';
 
 import { useAuthentication } from '../../hooks/auth';
@@ -19,7 +19,7 @@ const SignIn = () => {
       <View style={styles.container}>
         <Text style={styles.title}>Login In</Text>
 
-        <InputFiled
+        <InputField
           label="Email"
           value={email}
           onChangeText={text => onEmail(text)}
@@ -27,7 +27,7 @@ const SignIn = () => {
           keyboardType="email-address"
         />
 
-        <InputFiled
+        <InputField
           label="Password"
           value={password}
           onChangeText={text => onPassword(text)}
