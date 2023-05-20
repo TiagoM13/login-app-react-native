@@ -3,7 +3,10 @@ import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 export type StackNavigatorParamListType = {
   Home: undefined;
   Main: undefined;
-  SignIn: undefined;
+  SignIn: {
+    email?: string
+    password?: string
+  };
   SignUp: undefined;
 };
 
