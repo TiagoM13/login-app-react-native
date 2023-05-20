@@ -7,18 +7,18 @@ import { Header } from '@app/components/Header/Header';
 import { InputField } from '@app/components/InputField/InputField';
 import { TouchableButton } from '@app/components/Button/TouchableButton';
 
-import { FormData } from '@app/entities/form';
+import { FormDataSingUp } from '@app/entities/form';
 
 import { signUpSchema } from '@app/schemas/schema';
 
 import { styles } from '@app/screens/styles/styles';
 
 const SignUp = () => {
-  const { control, reset, handleSubmit, formState: { errors } } = useForm<FormData>({
+  const { control, reset, handleSubmit, formState: { errors } } = useForm<FormDataSingUp>({
     resolver: yupResolver(signUpSchema)
   });
 
-  const createAccount = (data: FormData) => {
+  const createAccount = (data: FormDataSingUp) => {
     console.log({ data })
 
     reset()

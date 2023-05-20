@@ -6,17 +6,17 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Header } from '@app/components/Header/Header';
 import { InputField } from '@app/components/InputField/InputField';
 import { TouchableButton } from '@app/components/Button/TouchableButton';
-import { FormData } from '@app/entities/form';
+import { FormDataSingIn } from '@app/entities/form';
 
 import { styles } from '@app/screens/styles/styles';
 import { sigInSchema } from '@app/schemas/schema';
 
 const SignIn = () => {
-  const { control, reset, handleSubmit, formState: { errors } } = useForm<FormData>({
+  const { control, reset, handleSubmit, formState: { errors } } = useForm<FormDataSingIn>({
     resolver: yupResolver(sigInSchema)
   })
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = (data: FormDataSingIn) => {
     console.log({ data })
 
     reset()
