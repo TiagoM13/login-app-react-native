@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Alert } from 'react-native';
 
 import { UsersProps } from '@app/entities/users';
+import { REGEX_EMAIL, REGEX_PASSWORD } from '@app/utils/regex';
 
 export const useCreateUser = () => {
   const [id, setId] = useState(1);
@@ -9,22 +10,6 @@ export const useCreateUser = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [users, setUsers] = useState<UsersProps[]>([]);
-
-  // regex validate email
-  const REGEX_EMAIL = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-  const REGEX_PASSWORD = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#!])[0-9a-zA-Z$*&@#!]{8,}$/;
-
-  const getUser = (value: string) => {
-    setUser(value);
-  };
-
-  const getEmail = (value: string) => {
-    setEmail(value);
-  };
-
-  const getPassword = (value: string) => {
-    setPassword(value);
-  };
 
   const handleCreateAccount = () => {
     setUsers([...users, { id, user, email, password }]);
@@ -53,5 +38,5 @@ export const useCreateUser = () => {
     setPassword('');
   };
 
-  return { user, email, password, getUser, getEmail, getPassword, handleCreateAccount };
+  return { user, email, password, setUser, setEmail, setPassword, handleCreateAccount };
 };
