@@ -1,7 +1,10 @@
 import React from 'react';
 import { Text, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+
+import { ScreensNavigationProps } from '@app/@types/navigation';
 
 import { Header } from '@app/components/Header/Header';
 import { InputField } from '@app/components/InputField/InputField';
@@ -18,10 +21,13 @@ const SignUp = () => {
     resolver: yupResolver(signUpSchema)
   });
 
+  const navigation = useNavigation<ScreensNavigationProps>();
+
   const createAccount = (data: FormDataSingUp) => {
     console.log({ data })
 
     reset()
+    navigation.navigate('SignIn', { email: data.email, password: data.password })
   }
 
   return (
