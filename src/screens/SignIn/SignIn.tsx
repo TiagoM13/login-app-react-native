@@ -8,7 +8,8 @@ import { ScreensNavigationProps } from '@app/@types/navigation';
 
 import { Header } from '@app/components/Header/Header';
 import { InputField } from '@app/components/InputField/InputField';
-import { TouchableButton } from '@app/components/Button/TouchableButton';
+import { Button } from '@app/components/Button/Button';
+import { Link } from '@app/components/Link/Link';
 
 import { FormDataSingIn } from '@app/entities/form';
 
@@ -52,45 +53,53 @@ const SignIn = () => {
   }
 
   return (
-    <View>
+    <>
       <Header />
-
       <View style={styles.container}>
-        <Text style={styles.title}>Login In</Text>
 
-        <Controller
-          control={control}
-          name="email"
-          render={({ field: { onChange, value } }) => (
-            <InputField
-              label="Email"
-              value={value}
-              onChangeText={onChange}
-              placeholder="Enter your email"
-              keyboardType="email-address"
-              errorMessage={errors.email?.message}
-            />
-          )}
+        <View style={{ marginBottom: 40 }}>
+          <Text style={styles.title}>Login</Text>
+
+          <Controller
+            control={control}
+            name="email"
+            render={({ field: { onChange, value } }) => (
+              <InputField
+                label="Email"
+                value={value}
+                onChangeText={onChange}
+                placeholder="Enter your email"
+                keyboardType="email-address"
+                errorMessage={errors.email?.message}
+              />
+            )}
+          />
+
+          <Controller
+            control={control}
+            name="password"
+            render={({ field: { onChange, value } }) => (
+              <InputField
+                label="Password"
+                value={value}
+                onChangeText={onChange}
+                placeholder="Enter your password"
+                secureTextEntry={true}
+                errorMessage={errors.password?.message}
+              />
+            )}
+          />
+
+          <Button value="Sign In" onPress={handleSubmit(onSubmit)} />
+        </View>
+
+        <Text style={styles.help}>Don't have an account?</Text>
+        <Link
+          title='Create your account'
+          onPress={() => navigation.navigate('SignUp')}
         />
-
-        <Controller
-          control={control}
-          name="password"
-          render={({ field: { onChange, value } }) => (
-            <InputField
-              label="Password"
-              value={value}
-              onChangeText={onChange}
-              placeholder="Enter your password"
-              secureTextEntry={true}
-              errorMessage={errors.password?.message}
-            />
-          )}
-        />
-
-        <TouchableButton value="Sign In" onPress={handleSubmit(onSubmit)} />
       </View>
-    </View>
+    </>
   );
 };
 
