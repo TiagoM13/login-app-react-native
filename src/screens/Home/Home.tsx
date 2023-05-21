@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import img from '@app/assets/img/user.png';
 
 import { ScreensNavigationProps } from '@app/@types/navigation';
-import { TouchableButton } from '@app/components/Button/TouchableButton';
+import { Button } from '@app/components/Button/Button';
 import { THEME } from '@app/utils/theme';
 
 import { styles } from './styles';
@@ -22,8 +22,8 @@ const Home = () => {
         <Text style={styles.subtitle}>You need to create an account or login to log in to the app</Text>
       </View>
 
-      <TouchableButton value="Login" onPress={() => navigation.navigate('SignIn', { email: '', password: '' })} />
-      <TouchableButton
+      <Button value="Login" onPress={() => navigation.navigate('SignIn', { email: '', password: '' })} />
+      <Button
         value="Sign Up"
         background={THEME.RED_500}
         onPress={() => navigation.navigate('SignUp')}

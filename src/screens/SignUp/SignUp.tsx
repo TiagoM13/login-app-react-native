@@ -8,7 +8,7 @@ import { ScreensNavigationProps } from '@app/@types/navigation';
 
 import { Header } from '@app/components/Header/Header';
 import { InputField } from '@app/components/InputField/InputField';
-import { TouchableButton } from '@app/components/Button/TouchableButton';
+import { Button } from '@app/components/Button/Button';
 
 import { FormDataSingUp } from '@app/entities/form';
 
@@ -81,7 +81,7 @@ const SignUp = () => {
               />
             )} />
 
-          <TouchableButton value="Sign Up" onPress={handleSubmit(createAccount)} />
+          <Button value="Sign Up" onPress={handleSubmit(createAccount)} />
         </View>
 
         <Text style={styles.help}>already have an account?</Text>

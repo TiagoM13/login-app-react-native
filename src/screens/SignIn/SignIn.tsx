@@ -8,7 +8,7 @@ import { ScreensNavigationProps } from '@app/@types/navigation';
 
 import { Header } from '@app/components/Header/Header';
 import { InputField } from '@app/components/InputField/InputField';
-import { TouchableButton } from '@app/components/Button/TouchableButton';
+import { Button } from '@app/components/Button/Button';
 import { Link } from '@app/components/Link/Link';
 
 import { FormDataSingIn } from '@app/entities/form';
@@ -90,7 +90,7 @@ const SignIn = () => {
             )}
           />
 
-          <TouchableButton value="Sign In" onPress={handleSubmit(onSubmit)} />
+          <Button value="Sign In" onPress={handleSubmit(onSubmit)} />
         </View>
 
         <Text style={styles.help}>Don't have an account?</Text>
