@@ -22,7 +22,7 @@ const Home = () => {
         <Text style={styles.subtitle}>You need to create an account or login to log in to the app</Text>
       </View>
 
-      <Button value="Login" onPress={() => navigation.navigate('SignIn', { email: '', password: '' })} />
+      <Button value="Login" onPress={() => navigation.navigate('SignIn')} />
       <Button
         value="Sign Up"
         background={THEME.RED_500}
