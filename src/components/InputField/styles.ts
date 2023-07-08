@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
     color: THEME.BLACK,
   },
   input: {
+    color: THEME.BLACK,
     paddingVertical: 10,
     paddingHorizontal: 15,
     marginTop: 15,
