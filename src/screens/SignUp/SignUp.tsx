@@ -1,5 +1,5 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React, { useRef } from 'react';
+import { Text, TextInput, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -21,6 +21,9 @@ const SignUp = () => {
   const { control, reset, handleSubmit, formState: { errors } } = useForm<FormDataSingUp>({
     resolver: yupResolver(signUpSchema)
   });
+
+  const refEmail = useRef<TextInput>(null)
+  const refPassword = useRef<TextInput>(null)
 
   const navigation = useNavigation<ScreensNavigationProps>();
 
@@ -44,27 +47,34 @@ const SignUp = () => {
             controllerProps={{ name: 'name', control }}
             inputProps={{
               keyboardType: "default",
-              placeholder: "Enter your name"
+              placeholder: "Enter your name",
+              onSubmitEditing: () => refEmail.current?.focus(),
+              returnKeyType: "next"
             }}
             errorMessage={errors.name?.message}
           />
 
           <InputField
+            ref={refEmail}
             label="Email"
             controllerProps={{ name: 'email', control }}
             inputProps={{
               placeholder: "Enter your email",
-              keyboardType: "email-address"
+              keyboardType: "email-address",
+              onSubmitEditing: () => refPassword.current?.focus(),
+              returnKeyType: "next"
             }}
             errorMessage={errors.email?.message}
           />
 
           <InputField
+            ref={refPassword}
             label="Password"
             controllerProps={{ name: 'password', control }}
             inputProps={{
               placeholder: "Enter your password",
-              secureTextEntry: true
+              secureTextEntry: true,
+              onSubmitEditing: handleSubmit(createAccount)
             }}
             errorMessage={errors.password?.message}
           />
