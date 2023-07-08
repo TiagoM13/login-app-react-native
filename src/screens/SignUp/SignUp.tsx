@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { ScreensNavigationProps } from '@app/@types/navigation';
@@ -28,7 +28,7 @@ const SignUp = () => {
     console.log({ data })
 
     reset()
-    navigation.navigate('SignIn', { email: data.email, password: data.password })
+    navigation.navigate('SignIn')
   }
 
   return (
@@ -39,47 +39,35 @@ const SignUp = () => {
         <View style={styles.content}>
           <Text style={styles.title}>Create account</Text>
 
-          <Controller
-            control={control}
-            name="name"
-            render={({ field: { onChange, value } }) => (
-              <InputField
-                label="Name"
-                value={value}
-                onChangeText={onChange}
-                keyboardType="default"
-                placeholder="Enter your name"
-                errorMessage={errors.name?.message}
-              />
-            )} />
+          <InputField
+            label="Name"
+            controllerProps={{ name: 'name', control }}
+            inputProps={{
+              keyboardType: "default",
+              placeholder: "Enter your name"
+            }}
+            errorMessage={errors.name?.message}
+          />
 
-          <Controller
-            control={control}
-            name="email"
-            render={({ field: { onChange, value } }) => (
-              <InputField
-                label="Email"
-                value={value}
-                onChangeText={onChange}
-                placeholder="Enter your email"
-                keyboardType="email-address"
-                errorMessage={errors.email?.message}
-              />
-            )} />
+          <InputField
+            label="Email"
+            controllerProps={{ name: 'email', control }}
+            inputProps={{
+              placeholder: "Enter your email",
+              keyboardType: "email-address"
+            }}
+            errorMessage={errors.email?.message}
+          />
 
-          <Controller
-            control={control}
-            name="password"
-            render={({ field: { onChange, value } }) => (
-              <InputField
-                label="Password"
-                value={value}
-                onChangeText={onChange}
-                placeholder="Enter your password"
-                secureTextEntry={true}
-                errorMessage={errors.password?.message}
-              />
-            )} />
+          <InputField
+            label="Password"
+            controllerProps={{ name: 'password', control }}
+            inputProps={{
+              placeholder: "Enter your password",
+              secureTextEntry: true
+            }}
+            errorMessage={errors.password?.message}
+          />
 
           <Button value="Sign Up" onPress={handleSubmit(createAccount)} />
         </View>
@@ -87,7 +75,7 @@ const SignUp = () => {
         <Text style={styles.help}>already have an account?</Text>
         <Link
           title="Sign in now"
-          onPress={() => navigation.navigate('SignIn', { email: '', password: '' })}
+          onPress={() => navigation.navigate('SignIn')}
         />
       </View>
     </>
