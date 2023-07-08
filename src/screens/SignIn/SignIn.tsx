@@ -1,5 +1,5 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React, { useRef } from 'react';
+import { Text, TextInput, View } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -22,6 +22,8 @@ const SignIn = () => {
     resolver: yupResolver(sigInSchema)
   })
 
+  const refPassword = useRef<TextInput>(null)
+
   const navigation = useNavigation<ScreensNavigationProps>();
 
   const onSubmit = (data: FormDataSingIn) => {
@@ -43,17 +45,21 @@ const SignIn = () => {
             controllerProps={{ name: 'email', control }}
             inputProps={{
               placeholder: 'Enter your email',
-              keyboardType: 'email-address'
+              keyboardType: 'email-address',
+              onSubmitEditing: () => refPassword.current?.focus(),
+              returnKeyType: 'next'
             }}
             errorMessage={errors.email?.message}
           />
 
           <InputField
+            ref={refPassword}
             label='Password'
             controllerProps={{ name: 'password', control }}
             inputProps={{
               placeholder: 'Enter your password',
-              secureTextEntry: true
+              secureTextEntry: true,
+              onSubmitEditing: handleSubmit(onSubmit)
             }}
             errorMessage={errors.password?.message}
           />
